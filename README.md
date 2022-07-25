@@ -48,3 +48,20 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+### Make a prediction
+
+After Running `app.py`, make a prediction using a separate terminal tab, and a call to `./make_prediction.sh`
+
+## Files in the repository
+
+- [model_data](model_data), [app.py](app.py), [requirements.txt](requirements.txt): Flask app files
+- [Makefile](Makefile): includes instructions on environment setup and lint tests
+- [Dockerfile](Dockerfile): includes instructions to assemble the Docker image
+- [run_docker.sh](run_docker.sh): Build the docker image and run the containerized Flask app
+- [upload_docker.sh](upload_docker.sh): Tag and push image to the Docker repository
+- [run_kubernetes.sh](run_kubernetes.sh): Deploy the Flask app to the Kubernetes Cluster, and forward the container port (80) to a host port (8000)
+- [make_prediction.sh](make_prediction.sh): Call deployed Flask app to make a prediction
+- [output_txt_files/docker_out.txt](output_txt_files/docker_out.txt): Output after running a prediction via Docker deployment
+- [output_txt_files/kubernetes_out.txt](output_txt_files/kubernetes_out.txt): Output after running a prediction via Kubernetes deployment
+- [.circleci/config.yml](.circleci/config.yml): CircleCI configuration
