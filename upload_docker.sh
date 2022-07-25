@@ -6,14 +6,14 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
-dockerpath=lukazcreations/flask-app:v1.0.0
+dockerpath="luqmanbello/flasksklearn"
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
-docker tag flask-app $dockerpath
-docker login
+docker login &&\
+    docker image tag luqmanbello/flasksklearn $dockerpath
 
 # Step 3:
 # Push image to a docker repository
-docker push $dockerpath
+docker image push $dockerpath
